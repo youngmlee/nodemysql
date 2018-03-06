@@ -35,6 +35,44 @@ app.get('/createpoststable', (req, res) => {
   });
 });
 
+//Insert post 1//
+app.get('/addpost1', (req, res) => {
+  var post = {title:'Post number one', body:'The body of post one'};
+  var sql = 'INSERT INTO posts SET ?';
+  var query = db.query(sql, post, (err, result) => {
+    console.log(result);
+    res.send('Post one added!');
+  });
+});
+
+//Insert post 2//
+app.get('/addpost2', (req, res) => {
+  var post = {title:'Post number two', body:'The body of post two'};
+  var sql = 'INSERT INTO posts SET ?';
+  var query = db.query(sql, post, (err, result) => {
+    console.log(result);
+    res.send('Post two added!');
+  });
+});
+
+//Select posts//
+app.get('/getposts', (req, res) => {
+  var sql = 'SELECT * FROM posts';
+  var query = db.query(sql, (err, result) => {
+    console.log(result);
+    res.send('Posts fetched!');
+  });
+});
+
+//Select single post//
+app.get('/getpost/:id', (req, res) => {
+  var sql = 'SELECT * FROM posts WHERE id = ${req.params.id}';
+  var query = db.query(sql, (err, result) => {
+    console.log(result);
+    res.send('Post fetched!');
+  });
+});
+
 app.listen(3000, () => {
   console.log('Now listening on port 3000!');
 });
