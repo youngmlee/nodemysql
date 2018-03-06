@@ -83,6 +83,15 @@ app.get('/updatepost/:id', (req, res) => {
   });
 });
 
+//Delete post//
+app.get('/deletepost/:id', (req, res) => {
+  var sql = 'DELETE FROM posts WHERE id = ${req.params.id}';
+  var query = db.query(sql, (err, result) => {
+  console.log(result);
+  res.send('Post deleted!');
+  });
+});
+
 app.listen(3000, () => {
   console.log('Now listening on port 3000!');
 });
