@@ -1,0 +1,24 @@
+{
+  "name": "nodemysql",
+  "version": "1.0.0",
+  "description": "A sample app for using mysql with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngmlee/nodemysql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youngmlee/nodemysql/issues"
+  },
+  "homepage": "https://github.com/youngmlee/nodemysql#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  }
+}
