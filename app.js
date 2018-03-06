@@ -73,6 +73,16 @@ app.get('/getpost/:id', (req, res) => {
   });
 });
 
+//Update post//
+app.get('/updatepost/:id', (req, res) => {
+  var newTitle = 'Updated Title';
+  var sql = 'UPDATE posts SET title = ${newTitle} WHERE id = ${req.params.id}';
+  var query = db.query(sql, (err, result) => {
+  console.log(result);
+  res.send('Post updated!');
+  });
+});
+
 app.listen(3000, () => {
   console.log('Now listening on port 3000!');
 });
