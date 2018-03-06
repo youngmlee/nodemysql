@@ -4,7 +4,8 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '12345'
+  password : '12345',
+  database : 'nodemysql'
 });
 
 db.connect((err) => {
@@ -13,6 +14,7 @@ db.connect((err) => {
 
 const app = express();
 
+//Create database//
 app.get('/createdb', (req, res) => {
   var sql = 'CREATE DATABASE nodemysql';
   db.query(sql, (err, result) => {
@@ -21,6 +23,15 @@ app.get('/createdb', (req, res) => {
     }
     console.log(result);
     res.send('Database has been created');
+  });
+});
+
+//Create table//
+app.get('/createpoststable', (req, res) => {
+  var sql = 'CREATE TABLE posts(id int AUTO_INCREMENT, title VARCHAR(255), body VARCHAR(255), PRIMARY KEY (id))';
+  db.query(sql, (err, result) => {
+    console.log(result);
+    res.send('Posts table created!')
   });
 });
 
